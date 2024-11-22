@@ -1,180 +1,148 @@
 <!DOCTYPE html>
 {% load widget_tweaks %}
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title></title>
-
-
-
-
+    <title>Customer Signup</title>
     <style media="screen">
-      body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: linear-gradient(to right, #b92b27, #1565c0)
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+        }
 
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #191919;
-    ;
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
-}
+        .form-container {
+             max-width: 800px;
+    margin: 120px auto 40px auto; /* Increased top margin from 40px to 120px */
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+        }
 
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 10px 10px;
-    width: 250px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s
-}
+        input[type=text],
+        select,
+        input[type=number],
+        input[type=password],
+        textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 2px solid #e8f5e9;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
 
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
-}
+        input[type=text]:focus,
+        select:focus,
+        input[type=number]:focus,
+        input[type=password]:focus,
+        textarea:focus {
+            border-color: #81c784;
+            outline: none;
+            box-shadow: 0 0 5px rgba(129, 199, 132, 0.3);
+        }
 
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
-}
+        input[type=submit] {
+            width: 100%;
+            background-color: #81c784;
+            color: white;
+            padding: 14px 20px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
 
-.box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer
-}
+        input[type=submit]:hover {
+            background-color: #66bb6a;
+            transform: translateY(-2px);
+        }
 
-.box input[type="submit"]:hover {
-    background: #2ecc71
-}
+        label {
+            color: #2e7d32;
+            font-weight: bold;
+            margin-top: 12px;
+            display: block;
+        }
 
-.forgot {
-    text-decoration: underline
-}
+        .form-title {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-ul.social-network {
-    list-style: none;
-    display: inline;
-    margin-left: 0 !important;
-    padding: 0
-}
+        .text-muted {
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-ul.social-network li {
-    display: inline;
-    margin: 0 5px
-}
+        .form-control {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 2px solid #e8f5e9;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            background-color: white;
+            color: #333;
+        }
 
-.social-network a.icoFacebook:hover {
-    background-color: #3B5998
-}
-
-.social-network a.icoTwitter:hover {
-    background-color: #33ccff
-}
-
-.social-network a.icoGoogle:hover {
-    background-color: #BD3518
-}
-
-.social-network a.icoFacebook:hover i,
-.social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i {
-    color: #fff
-}
-
-a.socialIcon:hover,
-.socialHoverClass {
-    color: #44BCDD
-}
-
-.social-circle li a {
-    display: inline-block;
-    position: relative;
-    margin: 0 auto 0 auto;
-    border-radius: 50%;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    font-size: 20px
-}
-
-.social-circle li i {
-    margin: 0;
-    line-height: 50px;
-    text-align: center
-}
-
-.social-circle li a:hover i,
-.triggeredHover {
-    transform: rotate(360deg);
-    transition: all 0.2s
-}
-
-.social-circle i {
-    color: #fff;
-    transition: all 0.8s;
-    transition: all 0.8s
-}
+        .form-control:focus {
+            border-color: #81c784;
+            outline: none;
+            box-shadow: 0 0 5px rgba(129, 199, 132, 0.3);
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     {% include "vehicle/navbar.html" %}
     <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <form class="box" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                    <h1>CUSTOMER SIGNUP</h1>
-                    <p class="text-muted"> Please enter your details to create account !</p>
-                      {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
-                        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
-                          {% render_field userForm.username class="form-control" placeholder="Username" %}
-                            {% render_field userForm.password class="form-control" placeholder="Password" %}
-                              {% render_field customerForm.address class="form-control" placeholder="Address" %}
-                                {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
-                                  {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+        <div class="form-container">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1 class="form-title">CUSTOMER SIGNUP</h1>
+                <p class="text-muted">Please enter your details to create account!</p>
 
-                     <input type="submit" name="" value="Create">
+                <label for="first_name">First Name</label>
+                {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
 
-                </form>
-            </div>
+                <label for="last_name">Last Name</label>
+                {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+
+                <label for="username">Username</label>
+                {% render_field userForm.username class="form-control" placeholder="Username" %}
+
+                <label for="password">Password</label>
+                {% render_field userForm.password class="form-control" placeholder="Password" %}
+
+                <label for="address">Address</label>
+                {% render_field customerForm.address class="form-control" placeholder="Address" %}
+
+                <label for="mobile">Mobile</label>
+                {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
+
+                <label for="profile_pic">Profile Picture</label>
+                {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+
+                <input type="submit" value="Create Account">
+            </form>
         </div>
     </div>
-</div>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
-{% include "vehicle/footer.html" %}
-  </body>
+    {% include "vehicle/footer.html" %}
+</body>
+
 </html>

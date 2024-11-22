@@ -6,32 +6,81 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <style media="screen">
-    .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e8f5e9, #c8e6c9);
     }
 
-    .jumbotron h1 {
+    .jumbotron {
+      background: white;
+      margin: 120px auto 40px auto;
+      max-width: 800px;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
-  </style>
+    .jumbotron h1 {
+      color: #2e7d32;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
 
+    .lead {
+      color: #4caf50;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .my-4 {
+      border-color: #e8f5e9;
+      margin: 30px 0;
+    }
+
+    .btn-primary {
+      background-color: #81c784 !important;
+      border: none;
+      padding: 12px 30px;
+      margin: 10px;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .jumbotron {
+        margin: 100px 20px 40px 20px;
+        padding: 30px;
+      }
+
+      .jumbotron h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
   {% include "vehicle/navbar.html" %}
-  <br><br>
-  <div class="jumbotron" style="margin-bottom:0px;">
+  <div class="jumbotron">
     <h1 class="display-4">Hello, Mechanics</h1>
     <p class="lead">Welcome to Vehicle Service Management</p>
     <hr class="my-4">
     <p>You can access various features after Login.</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="mechanicsignup" role="button">Apply For Job</a>
-      <a class="btn btn-primary btn-lg" href="mechaniclogin" role="button">Login</a>
+      <a class="btn btn-lg" href="mechanicsignup" role="button">Apply For Job</a>
+      <a class="btn btn-lg" href="mechaniclogin" role="button">Login</a>
     </p>
   </div>
   {% include "vehicle/footer.html" %}

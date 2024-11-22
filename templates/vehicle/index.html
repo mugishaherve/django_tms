@@ -4,44 +4,119 @@
 
 <head>
   <meta charset="utf-8">
-  <style media="screen">
-    .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
-      background-image: url('{% static "images/bg4.png" %}');
-      background-size: cover;
-      background-repeat: no-repeat;
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e8f5e9, #c8e6c9);
     }
 
-    .jumbotron h1 {
+    .hero-section {
+      position: relative;
+      /* background-image: url('{% static "images/bg4.png" %}'); */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 76px;
+    }
+
+    .hero-content {
       text-align: center;
+      color: white;
+      padding: 20px;
+      background: rgba(46, 125, 50, 0.7);
+      border-radius: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand-section {
+      background: white;
+      padding: 30px 0;
+      margin: 20px 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+    }
+
+    .brand-marquee {
+      padding: 10px 0;
+    }
+
+    .brand-marquee img {
+      margin: 0 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-marquee img:hover {
+      transform: scale(1.1);
+    }
+
+    .cards-section {
+      padding: 40px 20px;
+      background: white;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 2em;
+      }
     }
   </style>
-
 </head>
 
 <body>
   {% include "vehicle/navbar.html" %}
-  <br><br>
 
-  <div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;">
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to Transport Management System</h1>
+    </div>
   </div>
-  <marquee behavior="scroll" direction="left">
-   <img src="{% static "images/ferrari.png" %}" width="120" height="80" alt="ferrari" />
-    <img src="{% static "images/ford.png" %}" width="120" height="80" alt="ford" />
-   <img src="{% static "images/lambo.png" %}" width="120" height="80" alt="lambo" />
-   <img src="{% static "images/mahindra.png" %}" width="120" height="80" alt="mahindra" />
-   <img src="{% static "images/tvs.png" %}" width="120" height="80" alt="tvs" />
-   <img src="{% static "images/tata.png" %}" width="120" height="80" alt="tata" />
-   <img src="{% static "images/hero.png" %}" width="120" height="80" alt="hero" />
-   <img src="{% static "images/rolls.png" %}" width="120" height="80" alt="rolls" />
-   <img src="{% static "images/suzuki.png" %}" width="120" height="80" alt="suzuki" />
- </marquee>
-  <br><br>
 
-  {% include "vehicle/customer_mechanic_cards.html" %}
-<br><br><br><br><br>
+  <div class="container">
+    <div class="brand-section">
+      <marquee behavior="scroll" direction="left" class="brand-marquee">
+        <img src="{% static " images/ferrari.png" %}" width="120" height="80" alt="ferrari" />
+        <img src="{% static " images/ford.png" %}" width="120" height="80" alt="ford" />
+        <img src="{% static " images/lambo.png" %}" width="120" height="80" alt="lambo" />
+        <img src="{% static " images/mahindra.png" %}" width="120" height="80" alt="mahindra" />
+        <img src="{% static " images/tvs.png" %}" width="120" height="80" alt="tvs" />
+        <img src="{% static " images/tata.png" %}" width="120" height="80" alt="tata" />
+        <img src="{% static " images/hero.png" %}" width="120" height="80" alt="hero" />
+        <img src="{% static " images/rolls.png" %}" width="120" height="80" alt="rolls" />
+        <img src="{% static " images/suzuki.png" %}" width="120" height="80" alt="suzuki" />
+      </marquee>
+    </div>
+
+    <div class="cards-section">
+      {% include "vehicle/customer_mechanic_cards.html" %}
+    </div>
+  </div>
+
   {% include "vehicle/footer.html" %}
 </body>
 

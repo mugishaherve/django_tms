@@ -1,65 +1,98 @@
 {% extends 'vehicle/adminbase.html' %}
 {% load widget_tweaks %}
 {% block content %}
+
 <head>
   <style media="screen">
-    input[type=text], select,input[type=number] ,input[type=password], textarea{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
 
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+    input[type=text],
+    select,
+    input[type=number],
+    input[type=password],
+    textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 2px solid #e8f5e9;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
 
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
+    input[type=text]:focus,
+    select:focus,
+    input[type=number]:focus,
+    input[type=password]:focus,
+    textarea:focus {
+      border-color: #81c784;
+      outline: none;
+      box-shadow: 0 0 5px rgba(129, 199, 132, 0.3);
+    }
 
+    input[type=submit] {
+      width: 100%;
+      background-color: #81c784;
+      color: white;
+      padding: 14px 20px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
 
+    input[type=submit]:hover {
+      background-color: #66bb6a;
+      transform: translateY(-2px);
+    }
+
+    label {
+      color: #2e7d32;
+      font-weight: bold;
+      margin-top: 12px;
+      display: block;
+    }
+
+    .form-title {
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
   </style>
-
-
 </head>
 
-<br><br><br><br><br>
-<h3 style="text-align:center;">CREATE CUSTOMER ACCOUNT</h3>
-<div>
-  <form method="post"  enctype="multipart/form-data"  style="margin-left:200px;margin-right:200px;">
-      {% csrf_token %}
-
-        <label for="first_name">First Name</label>
-        {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
-        <label for="last_name">Last Name</label>
-        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
-        <label for="mobile">Mobile</label>
-        {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
-        <label for="address">Address</label>
-        {% render_field customerForm.address class="form-control" placeholder="Address" %}
-        <label for="username">Username</label>
-        {% render_field userForm.username class="form-control" placeholder="Username" %}
-        <label for="password">Password</label>
-        {% render_field userForm.password class="form-control" placeholder="Password" %} <br><br>
-        <label for="profile_pic">Profile Picture</label>
-        {% render_field customerForm.profile_pic class="form-control" placeholder="Profile Picture" %}
-
+<div class="form-container">
+  <h3 class="form-title">CREATE CUSTOMER ACCOUNT</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="first_name">First Name</label>
+    {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+    <label for="last_name">Last Name</label>
+    {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+    <label for="mobile">Mobile</label>
+    {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
+    <label for="address">Address</label>
+    {% render_field customerForm.address class="form-control" placeholder="Address" %}
+    <label for="username">Username</label>
+    {% render_field userForm.username class="form-control" placeholder="Username" %}
+    <label for="password">Password</label>
+    {% render_field userForm.password class="form-control" placeholder="Password" %}
+    <label for="profile_pic">Profile Picture</label>
+    {% render_field customerForm.profile_pic class="form-control" placeholder="Profile Picture" %}
     <input type="submit" value="Create">
   </form>
 </div>
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock content %}

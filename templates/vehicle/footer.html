@@ -2,81 +2,108 @@
 <html>
 
 <head>
-
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
   <style>
-    /*---------------------------------------
-   Social section
------------------------------------------*/
     footer {
-      padding: 0px 0px 0px 0px;
-      background-color: #4f55c7;
-      margin: 0px;
+      background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+      padding: 40px 0;
+      margin-top: 50px;
     }
 
-    .fa {
-      padding: 20px;
-      font-size: 23px;
-      width: 60px;
+    .social-links {
       text-align: center;
-      text-decoration: none;
-      margin: 5px 2px;
-      border-radius: 50%;
+      margin-bottom: 30px;
     }
 
-    .fa:hover {
-      opacity: 0.5;
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      margin: 0 10px;
+      border-radius: 50%;
+      color: white;
       text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 20px;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      opacity: 0.9;
     }
 
     .fa-facebook {
       background: #3B5998;
-      color: white;
-      margin-top: 30px;
     }
 
     .fa-whatsapp {
       background: #25d366;
-      color: white;
     }
 
     .fa-twitter {
       background: #55ACEE;
-      color: white;
     }
 
     .fa-instagram {
-      background: #125688;
-      color: white;
+      background: #E1306C;
     }
 
-    p {
+    .footer-content {
       text-align: center;
+      color: #2e7d32;
+    }
 
+    .footer-copyright {
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .footer-copyright p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    .made-in {
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    @media (max-width: 768px) {
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        margin: 0 5px;
+      }
     }
   </style>
 </head>
 
 <footer>
-
-  <p>
-    <a href="https://facebook.com/" class="fa fa-facebook"></a>
-    <a href="https://api.whatsapp.com/send?phone=919572181024&text=Hello%20Sumit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
-    <a href="https://instagram.com/" class="fa fa-instagram"></a>
-    <a href="https://twitter.com/" class="fa fa-twitter"></a>
-  </p>
-
-  <br>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
-          <p>Made in India <br>
-            Copyright &copy; 2020 Vehicle Service Management </p>
-        </div>
+    <div class="social-links">
+      <a href="https://facebook.com/" class="social-icon fa fa-facebook"></a>
+      <a href="https://api.whatsapp.com/send?phone=919572181024&text=Hello%20Sumit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#"
+        class="social-icon fa fa-whatsapp"></a>
+      <a href="https://instagram.com/" class="social-icon fa fa-instagram"></a>
+      <a href="https://twitter.com/" class="social-icon fa fa-twitter"></a>
+    </div>
+
+    <div class="footer-content">
+      <div class="footer-copyright">
+        <p class="made-in">Made in Rwanda</p>
+        <p>Copyright &copy; 2024 Transport Management System</p>
       </div>
     </div>
   </div>

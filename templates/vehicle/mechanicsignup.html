@@ -1,182 +1,224 @@
+{% load static %}
 <!DOCTYPE html>
-{% load widget_tweaks %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Mechanic Cards</title>
 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+        }
 
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-    <style media="screen">
-      body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: linear-gradient(to right, #b92b27, #1565c0)
-}
+        .section-title {
+            text-align: center;
+            color: #2e7d32;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
 
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #191919;
-    ;
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
-}
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
 
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 10px 10px;
-    width: 250px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s
-}
+        .card {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
 
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
-}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
 
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
-}
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #e8f5e9;
+        }
 
-.box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer
-}
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
 
-.box input[type="submit"]:hover {
-    background: #2ecc71
-}
+        .card-title {
+            color: #2e7d32;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-.forgot {
-    text-decoration: underline
-}
+        .card-text {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
 
-ul.social-network {
-    list-style: none;
-    display: inline;
-    margin-left: 0 !important;
-    padding: 0
-}
+        .card-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #81c784;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-ul.social-network li {
-    display: inline;
-    margin: 0 5px
-}
+        .card-btn:hover {
+            background-color: #2e7d32;
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
+        }
 
-.social-network a.icoFacebook:hover {
-    background-color: #3B5998
-}
+        .features-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.social-network a.icoTwitter:hover {
-    background-color: #33ccff
-}
+        .features-title {
+            text-align: center;
+            color: #2e7d32;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
 
-.social-network a.icoGoogle:hover {
-    background-color: #BD3518
-}
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-.social-network a.icoFacebook:hover i,
-.social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i {
-    color: #fff
-}
+        .feature-item {
+            padding: 20px;
+            text-align: center;
+        }
 
-a.socialIcon:hover,
-.socialHoverClass {
-    color: #44BCDD
-}
+        .feature-icon {
+            font-size: 40px;
+            color: #81c784;
+            margin-bottom: 15px;
+        }
 
-.social-circle li a {
-    display: inline-block;
-    position: relative;
-    margin: 0 auto 0 auto;
-    border-radius: 50%;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    font-size: 20px
-}
+        .feature-title {
+            color: #2e7d32;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-.social-circle li i {
-    margin: 0;
-    line-height: 50px;
-    text-align: center
-}
+        .feature-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
 
-.social-circle li a:hover i,
-.triggeredHover {
-    transform: rotate(360deg);
-    transition: all 0.2s
-}
+        @media (max-width: 768px) {
+            .card {
+                flex: 0 0 100%;
+                max-width: 400px;
+            }
 
-.social-circle i {
-    color: #fff;
-    transition: all 0.8s;
-    transition: all 0.8s
-}
+            .section-title {
+                font-size: 24px;
+            }
+
+            .features-section {
+                padding: 20px;
+            }
+        }
     </style>
-  </head>
-  <body>
-    {% include "vehicle/navbar.html" %}
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6">
+</head>
+
+<body>
+    <div class="main-container">
+        <h1 class="section-title">Choose Your Role</h1>
+
+        <div class="card-container">
+            <!-- Customer Card -->
             <div class="card">
-                <form class="box" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                    <h1>Mechanic SIGNUP</h1>
-                    <p class="text-muted"> Please enter your details to create account !</p>
-                      {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
-                        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
-                        {% render_field mechanicForm.address class="form-control" placeholder="Address" %}
-                          {% render_field mechanicForm.mobile class="form-control" placeholder="Mobile" %}
-                          {% render_field mechanicForm.skill class="form-control" placeholder="Skills" %}
-                          {% render_field userForm.username class="form-control" placeholder="Username" %}
-                            {% render_field userForm.password class="form-control" placeholder="Password" %}
+                <img class="card-img" src="{% static 'images/customer.jpg' %}" alt="customer">
+                <div class="card-content">
+                    <h2 class="card-title">Customer</h2>
+                    <p class="card-text">Click below to login as Customer and request for vehicle service.</p>
+                    <a href="/customerclick" class="card-btn">Click Here</a>
+                </div>
+            </div>
 
-                                  {% render_field mechanicForm.profile_pic class="form-control" placeholder="Profile pic" %}
+            <!-- Mechanic Card -->
+            <div class="card">
+                <img class="card-img" src="{% static 'images/mechanic.png' %}" alt="mechanic">
+                <div class="card-content">
+                    <h2 class="card-title">Mechanic</h2>
+                    <p class="card-text">Click below to login as Mechanic and start serving customers.</p>
+                    <a href="/mechanicsclick" class="card-btn">Click Here</a>
+                </div>
+            </div>
 
-                     <input type="submit" name="" value="Create">
+            <!-- Admin Card -->
+            <div class="card">
+                <img class="card-img" src="{% static 'images/admin.png' %}" alt="admin">
+                <div class="card-content">
+                    <h2 class="card-title">Admin</h2>
+                    <p class="card-text">Click below to login as Admin and manage the system.</p>
+                    <a href="/adminclick" class="card-btn">Click Here</a>
+                </div>
+            </div>
+        </div>
 
-                </form>
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2 class="features-title">Our Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🚗</div>
+                    <h3 class="feature-title">Vehicle Service</h3>
+                    <p class="feature-description">Professional vehicle maintenance and repair services.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍🔧</div>
+                    <h3 class="feature-title">Expert Mechanics</h3>
+                    <p class="feature-description">Skilled and experienced mechanics at your service.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Quick Service</h3>
+                    <p class="feature-description">Fast and efficient vehicle repair service.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Best Prices</h3>
+                    <p class="feature-description">Competitive prices for all our services.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
-{% include "vehicle/footer.html" %}
-  </body>
+</body>
+
 </html>
